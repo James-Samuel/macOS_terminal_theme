@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Define the colors
+# You can adjust these values to match the Ubuntu terminal theme
+BLACK="\[\e[30m\]"
+RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
+YELLOW="\[\e[33m\]"
+BLUE="\[\e[34m\]"
+MAGENTA="\[\e[35m\]"
+CYAN="\[\e[36m\]"
+WHITE="\[\e[37m\]"
+RESET="\[\e[0m\]"
+
+# Define the prompt
+PS1="${GREEN}\u${RESET}@${BLUE}\h${RESET}:${YELLOW}\w${RESET}\n${GREEN}\$${RESET} "
+
+# Define the ls command alias with tree view
+alias ls="tree -C"
+
+# Set the terminal title
+PROMPT_COMMAND='echo -ne "\033]0;Terminal\007"'
+
+# Enable colorized output for ls command
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Enable completion with arrow keys
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
